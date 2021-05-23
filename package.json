@@ -1,0 +1,26 @@
+{
+  "name": "web-scraping-example",
+  "version": "1.0.0",
+  "description": "Web Scraping Example",
+  "main": "potusScraper.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.9",
+    "puppeteer": "^9.1.1",
+    "request-promise": "^4.2.6",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d4nylo/web-scraping-example.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d4nylo/web-scraping-example/issues"
+  },
+  "homepage": "https://github.com/d4nylo/web-scraping-example#readme"
+}
