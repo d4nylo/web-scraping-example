@@ -4,11 +4,17 @@ const url = 'https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_Stat
 
 rp(url)
    .then(function (html) {
-      //success!
-      //console.log(html);
       const $ = cheerio.load(html);
-      console.log($('table > tbody > tr > td > b > a', html).length);
-      console.log($('table > tbody > tr > td > b > a', html));
+
+      const data = $('table > tbody > tr > td > b > a');
+
+      const wikiUrls = [];
+
+      for (let idx = 0; idx < data.length; idx++) {
+         wikiUrls.push(data[idx].attribs.href);
+      }
+
+      console.log(wikiUrls);
    })
    .catch(function (err) {
       //handle error
