@@ -1,6 +1,7 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 const url = 'https://en.wikipedia.org/wiki/List_of_Presidents_of_the_United_States';
+const potusParse = require('./potusParse');
 
 rp(url)
    .then(function (html) {
@@ -14,9 +15,12 @@ rp(url)
          wikiUrls.push(data[idx].attribs.href);
       }
 
-      console.log(wikiUrls);
+      return Promise.all(
+         wikiUrls.map(function (url) {
+            return potusParse('https://en.wikipedia.org' + url);
+         })
+      );
    })
-   .catch(function (err) {
-      //handle error
-      console.log(err);
+   .done(function (presidents) {
+      console.log(presidents);
    });

@@ -2,7 +2,7 @@ const rp = require('request-promise');
 const cheerio = require('cheerio');
 
 const potusParse = function (url) {
-  rp(url)
+  return rp(url)
     .then(function (html) {
       const $ = cheerio.load(html);
 
@@ -11,8 +11,8 @@ const potusParse = function (url) {
 
       return { name, birthday };
     })
-    .catch(function (err) {
-      console.log(err);
+    .catch(function(exc) {
+      console.log(exc);
     });
 }
 
